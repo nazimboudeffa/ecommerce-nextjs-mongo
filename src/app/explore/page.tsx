@@ -42,27 +42,34 @@ export default function ExplorePage() {
           <th scope='col' className='px-6 py-3 w-0 font-medium'>
             Description
           </th>
-          <th scope='col' className='px-6 py-3 w-0 font-medium'>
-            Site
-          </th>
-          <th scope='col' className='px-6 py-3 w-0 font-medium'>
-            Facebook
-          </th>
         </tr>
       </thead>			
       <tbody>
       {stores.map((store : TypeStore, idx : number) => {
         return (
-        <tr className={`${idx % 2 == 1 ? "bg-zinc-100" : ""}`} key={idx}>
+        <tr className={`${idx % 2 == 1 ? "bg-zinc-100" : ""} hover:bg-neutral`} key={idx} onClick={()=>document.getElementById('my_modal_5_'+idx).showModal()}>
           <td className='px-2 py-4 font-medium whitespace-nowrap'>
             {store.name}
           </td>
-          <td className='px-6 py-4'>
-            {store.description.length > 20 ? store.description.slice(0, 20) + " ..." : store.description}
+          <td className='px-6 py-4 w-full'>
+            {store.description.length > 20 ? store.description.slice(0, 50) + " ..." : store.description}
           </td>
-          <td className={`px-6 py-4`}><Link href={store.website}><Globe /></Link></td>
-          <td className={"px-6 py-4"}><Link href={store.facebook}><ExternalLink /></Link></td>
-        </tr>)})}
+          <dialog id={`my_modal_5_${+idx}`} className="modal modal-bottom sm:modal-middle">
+            <div className="modal-box">
+              <h3 className="font-bold text-lg">{store.name}</h3>
+              <p className="py-4">{store.description}</p>
+              <p className={`px-6 py-4`}><Link href={store.website}><Globe /></Link></p>
+              <p className={"px-6 py-4"}><Link href={store.facebook}><ExternalLink /></Link></p>
+              <div className="modal-action">
+                <form method="dialog">
+                  {/* if there is a button in form, it will close the modal */}
+                  <button className="btn">Close</button>
+                </form>
+              </div>
+            </div>
+          </dialog>
+        </tr>)}
+      )}
       </tbody>
 		</table>
     </>

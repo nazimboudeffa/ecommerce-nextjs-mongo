@@ -97,6 +97,7 @@ function Dashboard () {
                                 required={true}
                                 value={formData.name}
                                 placeholder="My cool store"
+                                maxLength={30}
                             />                            
                             <label htmlFor="description">Description <span className='text-red-500'>*</span></label>
                             <textarea
@@ -107,6 +108,7 @@ function Dashboard () {
                                 required={true}
                                 value={formData.description}
                                 placeholder="I have a cool store that sells cool stuff"
+                                maxLength={200}
                             />
                             <label htmlFor="Website">website</label>
                             <input
