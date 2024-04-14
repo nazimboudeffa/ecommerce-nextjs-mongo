@@ -28,3 +28,15 @@ export async function PUT(request: NextRequest, { params } : { params: { email: 
     return NextResponse.json({ message: error }, { status: 500 });
   }
 }
+
+export async function DELETE(request: NextRequest, { params } : { params: { email: string } }) {
+  try {
+    const { email } = params;
+  
+    await Store.findOneAndDelete({ email: email });
+    return NextResponse.json({ message: "Store deleted" }, { status: 200 });
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json({ message: error }, { status: 500 });
+  }
+}

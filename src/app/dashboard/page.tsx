@@ -3,6 +3,7 @@ import Header from '@/components/Header'
 import { useSession } from "next-auth/react"
 import { redirect } from 'next/navigation';
 import { useEffect, useState } from "react";
+import { Trash, Trash2 } from 'lucide-react';
 
 type TypeStore = {
     email: string;
@@ -76,6 +77,20 @@ function Dashboard () {
             }
         };
 
+        const handleDelete = async () => {
+            await fetch(`/api/stores/${session?.user?.email}`, {
+                method: "DELETE",
+            });
+            setFormData({
+                email: session?.user?.email as string,
+                name: "",
+                description: "",
+                website: "",
+                facebook: "",
+            });
+            setEditMode(false);
+        }
+
     return (
         <>
             <Header session = { session } />
@@ -86,7 +101,9 @@ function Dashboard () {
                             method="post"
                             className="flex flex-col gap-3"
                         >
-                            <h1 className='text-xl'>Describe your store</h1>
+                            <div className='flex justify-between items-center'>
+                            <h1 className='text-xl'>Describe your store</h1> <Trash2 className='cursor-pointer text-red-500' onClick={handleDelete} />
+                            </div>
                             <label htmlFor="name">Name <span className='text-red-500'>*</span></label>
                             <input
                                 className='w-80 p-2 rounded-md border-2'

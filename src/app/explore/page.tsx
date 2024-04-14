@@ -47,7 +47,7 @@ export default function ExplorePage() {
       <tbody>
       {stores.map((store : TypeStore, idx : number) => {
         return (
-        <tr className={`${idx % 2 == 1 ? "bg-zinc-100" : ""} hover:bg-neutral cursor-pointer`} key={idx} onClick={()=>(document.getElementById('my_modal_5_'+idx) as HTMLDialogElement).showModal()}>
+        <tr className={`${idx % 2 == 1 ? "bg-neutral" : ""} hover:bg-secondary cursor-pointer`} key={idx} onClick={()=>(document.getElementById('my_modal_5_'+idx) as HTMLDialogElement).showModal()}>
           <td className='px-2 py-4 font-medium whitespace-nowrap'>
             {store.name}
           </td>
