@@ -8,6 +8,11 @@ export default function MobileMenu ({ open } : { open: boolean }) {
                 Explore
                 </span>
             </Link>
+            <Link href="/pricing">
+                <span className="block h-16 leading-[4rem] pl-3">
+                Pricing
+                </span>
+            </Link>
         </div>
     )
 }

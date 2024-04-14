@@ -1,8 +1,8 @@
 export default function FAQ() {
     return (
-        <div className="space-y-4 max-w-xl">
-        <details className="group rounded-lg bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden" open>
-            <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
+        <div className="space-y-4 w-[500px] max-w-xl">
+        <details className="group rounded-lg bg-neutral p-6 [&_summary::-webkit-details-marker]:hidden" open>
+            <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-100">
             <h2 className="font-medium">Lorem ipsum dolor sit amet consectetur adipisicing?</h2>
 
             <span className="relative size-5 shrink-0">
@@ -45,8 +45,8 @@ export default function FAQ() {
             </p>
         </details>
 
-        <details className="group rounded-lg bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden">
-            <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
+        <details className="group rounded-lg bg-neutral p-6 [&_summary::-webkit-details-marker]:hidden">
+            <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-100">
             <h2 className="font-medium">Lorem ipsum dolor sit amet consectetur adipisicing?</h2>
 
             <span className="relative size-5 shrink-0">
