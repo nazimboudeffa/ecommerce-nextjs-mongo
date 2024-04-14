@@ -1,8 +1,9 @@
 "use client"
 import Header from '@/components/Header';
-import Coming from '@/components/Coming';
 import { useState , useEffect } from "react";
 import { useSession } from "next-auth/react";
+import { Globe, ExternalLink } from 'lucide-react';
+import Link from 'next/link';
 
 type TypeStore = {
   email: string;
@@ -33,7 +34,7 @@ export default function ExplorePage() {
     <>
     <Header session = { session } />
 		<table className='text-sm text-left sm:w-7/12 w-full max-w mx-auto mt-10'>
-      <thead className='text-xs text-gray-700 uppercase border-b '>
+      <thead className='text-xs text-gray-100 uppercase border-b '>
         <tr>
           <th scope='col' className='px-1 py-3 w-0 font-medium'>
             Name
@@ -59,8 +60,8 @@ export default function ExplorePage() {
           <td className='px-6 py-4'>
             {store.description.length > 20 ? store.description.slice(0, 20) + " ..." : store.description}
           </td>
-          <td className={`px-6 py-4`}>{store.website}</td>
-          <td className={"px-6 py-4"}>{store.facebook}</td>
+          <td className={`px-6 py-4`}><Link href={store.website}><Globe /></Link></td>
+          <td className={"px-6 py-4"}><Link href={store.facebook}><ExternalLink /></Link></td>
         </tr>)})}
       </tbody>
 		</table>

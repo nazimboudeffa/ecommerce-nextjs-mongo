@@ -1,6 +1,5 @@
 "use client"
 import Header from '@/components/Header'
-import { set } from 'mongoose';
 import { useSession } from "next-auth/react"
 import { redirect } from 'next/navigation';
 import { useEffect, useState } from "react";
@@ -87,47 +86,51 @@ function Dashboard () {
                             method="post"
                             className="flex flex-col gap-3"
                         >
-                            <h1>Décrivez votre boutique</h1>
-                            <label htmlFor="name">Nom *</label>
+                            <h1 className='text-xl'>Describe your store</h1>
+                            <label htmlFor="name">Name <span className='text-red-500'>*</span></label>
                             <input
-                                className='w-80 p-2 rounded-md border-2 border-gray-300'
+                                className='w-80 p-2 rounded-md border-2'
                                 id="name"
                                 name="name"
                                 type="text"
                                 onChange={handleChange}
                                 required={true}
                                 value={formData.name}
+                                placeholder="My cool store"
                             />                            
-                            <label htmlFor="description">Description *</label>
+                            <label htmlFor="description">Description <span className='text-red-500'>*</span></label>
                             <textarea
-                            className='h-40 w-80 p-2 rounded-md border-2 border-gray-300'
-                            id="description"
-                            name="description"
-                            onChange={handleChange}
-                            required={true}
-                            value={formData.description}
+                                className='h-40 w-80 p-2 rounded-md border-2'
+                                id="description"
+                                name="description"
+                                onChange={handleChange}
+                                required={true}
+                                value={formData.description}
+                                placeholder="I have a cool store that sells cool stuff"
                             />
-                            <label htmlFor="website">website</label>
+                            <label htmlFor="Website">website</label>
                             <input
-                                className='w-80 p-2 rounded-md border-2 border-gray-300'
+                                className='w-80 p-2 rounded-md border-2'
                                 id="website"
                                 name="website"
                                 type="text"
                                 onChange={handleChange}
                                 value={formData.website}
+                                placeholder="https://www.example.com"
                             /> 
                             <label htmlFor="facebook">Facebook</label>
                             <input
-                                className='w-80 p-2 rounded-md border-2 border-gray-300'
+                                className='w-80 p-2 rounded-md border-2'
                                 id="facebook"
                                 name="facebook"
                                 type="text"
                                 onChange={handleChange}
                                 value={formData.facebook}
+                                placeholder="https://www.facebook.com/example"
                             /> 
                             <input
                             type="submit"
-                            className="bg-green-600 rounded-md p-2 text-white cursor-pointer"
+                            className="btn btn-secondary rounded-md p-2 cursor-pointer"
                             value="Enregistrer"
                             />
                         </form>
